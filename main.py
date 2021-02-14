@@ -1,6 +1,9 @@
 from flask import escape, jsonify
 from algos import api
 
+def api_india(request):
+    return query_tweets(request=request)
+
 def query_tweets(request):
     """Responds to any HTTP request.
     Args:
