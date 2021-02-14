@@ -1,5 +1,5 @@
 from flask import escape, jsonify
-from algorithms import *
+from algos import api
 
 def query_tweets(request):
     """Responds to any HTTP request.
@@ -14,7 +14,7 @@ def query_tweets(request):
     if request_json and 'algo' in request_json and 'keyword' in request_json:
         algo, keyword = request_json['algo'], request_json['keyword']
         try:
-            return get_tweets_using_algorithm(algo, keyword)
+            return api(algo, keyword)
         except Exception as e:
             return 'error:' + str(e)
     else:
